@@ -122,9 +122,9 @@ class Math {
 //        System.out.println("Result = " + result);
 //    }
 
-//    public static <T> T sum(T a, T b) {
-//        return a  + b;
-//    }
+    public static <T extends Number> T sum(T a, T b, char znak) {
+        return (a  + b);
+    }
 }
 //boxing and unboxing
 
