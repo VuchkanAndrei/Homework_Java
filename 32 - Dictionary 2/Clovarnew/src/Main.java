@@ -7,7 +7,7 @@ class Slovar {
     private Map<String, Map<String, List<String>>> dictionary;
 
     {
-        dictionary = new TreeMap<>();
+        dictionary = new TreeMap<String, Map<String, List<String>>>();
     }
 
     // метод добавления языка ru, en
@@ -16,7 +16,7 @@ class Slovar {
         if (dictionary.containsKey(lang)) { //не добавлять уже существующий язык
             return false;
         }
-        dictionary.put(lang, new TreeMap<>());
+      //  dictionary.put(lang, new TreeMap<String, String>());
         return true;
     }
 
@@ -39,7 +39,7 @@ class Slovar {
     }
 
     public List<String> toLowerCase(List<String> list) {
-        List<String> lisrArr = new ArrayList<>();
+        List<String> lisrArr = new ArrayList<String>();
         for (String word : list) {
             lisrArr.add(word.toLowerCase());
         }
@@ -81,33 +81,33 @@ class Slovar {
         }
     }
 
-    public boolean addWord(String keyLang, String originalWord, String word) {
-        originalWord = originalWord.toLowerCase();// игнорирование регистра
-        keyLang = keyLang.toLowerCase();// игнорирование регистра
-        word = word.toLowerCase();// игнорирование регистра
-        if (dictionary.containsKey(keyLang)) {
-            if (dictionary.get(keyLang).containsKey(originalWord)) {
-                if (dictionary.get(keyLang).get(originalWord).contains(word)) {
-                    return false;
-                } else {
-                    dictionary.get(keyLang).get(originalWord).add(word);
-                    return true;
-                }
-            } else {
-                ArrayList<String> list = new ArrayList<>();
-                list.add(word);
-                dictionary.get(keyLang).put(originalWord, list);
-                return false;
-            }
-        } else {
-            if (addLang(keyLang)) {
-                boolean isadd = addWord(keyLang, originalWord, word);
-                return isadd;
-            } else {
-                return false;
-            }
-        }
-    }
+//    public boolean addWord(String keyLang, String originalWord, String word) {
+//        originalWord = originalWord.toLowerCase();// игнорирование регистра
+//        keyLang = keyLang.toLowerCase();// игнорирование регистра
+//        word = word.toLowerCase();// игнорирование регистра
+//        if (dictionary.containsKey(keyLang)) {
+//            if (dictionary.get(keyLang).containsKey(originalWord)) {
+//                if (dictionary.get(keyLang).get(originalWord).contains(word)) {
+//                    return false;
+//                } else {
+//                    dictionary.get(keyLang).get(originalWord).add(word);
+//                    return true;
+//                }
+//            } else {
+//                ArrayList<String> list = new ArrayList<String>();
+//                list.add(word);
+//                dictionary.get(keyLang).put(originalWord, list);
+//                return false;
+//            }
+//        } else {
+//            if (addLang(keyLang)) {
+//                boolean isadd = addWord(keyLang, originalWord, word);
+//                return isadd;
+//            } else {
+//                return false;
+//            }
+//        }
+//    }
 
     public void printSlovarLang(String newKey) {
         int count = 1;
@@ -357,7 +357,7 @@ class Slovar {
                     System.out.println("Введите исходное слово");
                     String originalWord = scanner.nextLine();
                     System.out.println("Ввод перевода");
-                    List<String> translateWord = new ArrayList<>();
+                    List<String> translateWord = new ArrayList<String>();
                     String addWord = scanner.nextLine();
                     translateWord.add(addWord);
 
