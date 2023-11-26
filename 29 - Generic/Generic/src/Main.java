@@ -175,7 +175,7 @@ public class Main {
 //
 //        System.out.println(comparable2.compare("bba","bab"));
 
-        List<Integer> arr = new ArrayList<>();
+        List<Integer> arr = new ArrayList<Integer>();
         arr.add(1);
         arr.add(2);
         arr.add(3);
